@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - 9042:9042
+    volumes:
+      - ./platform/cassandra:/var/lib/cassandra
+    environment:
+      - CASSANDRA_CLUSTER_NAME=demo
