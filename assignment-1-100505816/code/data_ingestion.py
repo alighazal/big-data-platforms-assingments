@@ -5,7 +5,7 @@ import pandas as pd
 
 cluster = Cluster(['localhost'])
 session = cluster.connect()
-session = cluster.connect('store')
+X       
 session.execute(
     "CREATE KEYSPACE IF NOT EXISTS yellow_taxi WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };")
 
