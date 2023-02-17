@@ -1,0 +1,118 @@
+******************** Stress Settings ********************
+Command:
+  Type: write
+  Count: 10,000
+  No Warmup: false
+  Consistency Level: LOCAL_ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: false
+  Thread Count: 10
+  OpsPer Sec: 0
+Population:
+  Sequence: 1..10000
+  Order: ARBITRARY
+  Wrap: true
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: write_10000n_10t.log
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V5
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [192.168.56.101]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: keyspace1
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: WRITE
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Sleeping 2s...
+Warming up WRITE with 2500 iterations...
+Running WRITE with 10 threads for 10000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   255,     255,     255,     255,    19.0,    11.3,    67.8,    83.7,   130.5,   130.5,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                   942,     687,     687,     687,    14.8,    10.8,    37.8,    59.4,   107.6,   119.5,    2.0,  0.32076,      0,      0,       0,       0,       0,       0
+total,                                                  1725,     783,     783,     783,    12.5,     9.8,    32.8,    48.7,    64.6,    71.9,    3.0,  0.22213,      0,      0,       0,       0,       0,       0
+total,                                                  2410,     685,     685,     685,    14.4,     9.2,    44.5,    67.9,    91.6,   110.8,    4.0,  0.16401,      0,      0,       0,       0,       0,       0
+total,                                                  3202,     792,     792,     792,    12.5,     9.6,    31.5,    45.0,    53.5,    67.8,    5.0,  0.13247,      0,      0,       0,       0,       0,       0
+total,                                                  3952,     750,     750,     750,    13.1,     9.6,    35.9,    63.2,    72.1,    77.7,    6.0,  0.10997,      0,      0,       0,       0,       0,       0
+total,                                                  4764,     812,     812,     812,    12.2,     9.2,    32.1,    50.2,    58.1,    73.5,    7.0,  0.09538,      0,      0,       0,       0,       0,       0
+total,                                                  5566,     802,     802,     802,    12.2,     9.6,    31.9,    45.8,    62.9,    73.1,    8.0,  0.08383,      0,      0,       0,       0,       0,       0
+total,                                                  6422,     856,     856,     856,    11.5,     7.5,    35.2,    62.4,    91.3,   107.7,    9.0,  0.07711,      0,      0,       0,       0,       0,       0
+total,                                                  7240,     818,     818,     818,    12.0,     8.6,    31.1,    52.6,    66.0,    67.6,   10.0,  0.06949,      0,      0,       0,       0,       0,       0
+total,                                                  8026,     786,     786,     786,    12.5,     9.3,    32.8,    47.0,    70.4,    71.4,   11.0,  0.06305,      0,      0,       0,       0,       0,       0
+total,                                                  8900,     874,     874,     874,    11.3,     7.8,    35.1,    48.1,    57.9,    61.8,   12.0,  0.05851,      0,      0,       0,       0,       0,       0
+total,                                                  9986,    1086,    1086,    1086,     9.1,     6.4,    24.4,    40.9,    67.7,    68.0,   13.0,  0.06100,      0,      0,       0,       0,       0,       0
+total,                                                 10000,     215,     215,     215,    41.9,    43.9,    62.4,    64.3,    64.3,    64.3,   13.1,  0.59538,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :      765 op/s  [WRITE: 765 op/s]
+Partition rate            :      765 pk/s  [WRITE: 765 pk/s]
+Row rate                  :      765 row/s [WRITE: 765 row/s]
+Latency mean              :   12.4 ms [WRITE: 12.4 ms]
+Latency median            :    8.9 ms [WRITE: 8.9 ms]
+Latency 95th percentile   :   34.8 ms [WRITE: 34.8 ms]
+Latency 99th percentile   :   54.7 ms [WRITE: 54.7 ms]
+Latency 99.9th percentile :   91.3 ms [WRITE: 91.3 ms]
+Latency max               :  130.5 ms [WRITE: 130.5 ms]
+Total partitions          :     10,000 [WRITE: 10,000]
+Total errors              :          0 [WRITE: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:13
+
+END

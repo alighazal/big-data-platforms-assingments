@@ -1,0 +1,113 @@
+******************** Stress Settings ********************
+Command:
+  Type: write
+  Count: 10,000
+  No Warmup: false
+  Consistency Level: LOCAL_ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: false
+  Thread Count: 1000
+  OpsPer Sec: 0
+Population:
+  Sequence: 1..10000
+  Order: ARBITRARY
+  Wrap: true
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: write_10000n_1000t.log
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V5
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [192.168.56.101]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: keyspace1
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: WRITE
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Sleeping 2s...
+Warming up WRITE with 2500 iterations...
+Running WRITE with 1000 threads for 10000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   269,     269,     269,     269,   190.7,   150.5,   448.5,   474.5,   480.5,   480.5,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                   740,     471,     471,     471,   596.4,   599.3,  1162.9,  1318.1,  1361.1,  1361.1,    2.0, -1.63795,      0,      0,       0,       0,       0,       0
+total,                                                  1228,     488,     488,     488,   672.2,   539.0,  1263.5,  1405.1,  1580.2,  1580.2,    3.0, -0.82286,      0,      0,       0,       0,       0,       0
+total,                                                  1633,     405,     405,     405,  1665.6,  1651.5,  1903.2,  2659.2,  2738.9,  2738.9,    4.0, -0.73415,      0,      0,       0,       0,       0,       0
+total,                                                  3222,    1589,    1589,    1589,   975.7,   718.8,  2051.0,  2359.3,  2491.4,  2535.5,    5.0, -0.50352,      0,      0,       0,       0,       0,       0
+total,                                                  6080,    2858,    2858,    2858,   361.4,   319.0,   685.8,   967.8,  1348.5,  1385.2,    6.0, -0.62166,      0,      0,       0,       0,       0,       0
+total,                                                  7941,    1861,    1861,    1861,   493.1,   463.7,   939.5,  1081.1,  1277.2,  1303.4,    7.0, -0.46230,      0,      0,       0,       0,       0,       0
+total,                                                  9806,    1865,    1865,    1865,   454.9,   444.9,   900.2,  1115.7,  1264.6,  1290.8,    8.0, -0.37185,      0,      0,       0,       0,       0,       0
+total,                                                 10000,     194,     194,     194,  1006.9,   963.1,  1464.9,  1688.2,  1775.2,  1775.2,    9.0, -0.38290,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    1,079 op/s  [WRITE: 1,079 op/s]
+Partition rate            :    1,079 pk/s  [WRITE: 1,079 pk/s]
+Row rate                  :    1,079 row/s [WRITE: 1,079 row/s]
+Latency mean              :  588.0 ms [WRITE: 588.0 ms]
+Latency median            :  452.7 ms [WRITE: 452.7 ms]
+Latency 95th percentile   : 1667.2 ms [WRITE: 1,667.2 ms]
+Latency 99th percentile   : 2032.1 ms [WRITE: 2,032.1 ms]
+Latency 99.9th percentile : 2491.4 ms [WRITE: 2,491.4 ms]
+Latency max               : 2738.9 ms [WRITE: 2,738.9 ms]
+Total partitions          :     10,000 [WRITE: 10,000]
+Total errors              :          0 [WRITE: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:09
+
+END

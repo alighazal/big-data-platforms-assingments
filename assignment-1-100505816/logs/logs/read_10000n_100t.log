@@ -1,0 +1,112 @@
+******************** Stress Settings ********************
+Command:
+  Type: read
+  Count: 10,000
+  No Warmup: false
+  Consistency Level: LOCAL_ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: false
+  Thread Count: 100
+  OpsPer Sec: 0
+Population:
+  Distribution: Gaussian:  min=1,max=10000,mean=5000.500000,stdev=1666.500000
+  Order: ARBITRARY
+  Wrap: false
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: read_10000n_100t.log
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V5
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [192.168.56.101]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: keyspace1
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: READ
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Sleeping 2s...
+Warming up READ with 2500 iterations...
+Running READ with 100 threads for 10000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   204,     204,     204,     204,    89.4,    79.6,   160.3,   188.4,   198.8,   198.8,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  1246,    1042,    1042,    1042,    79.1,    72.1,   169.9,   226.4,   246.2,   266.9,    2.0,  0.49224,      0,      0,       0,       0,       0,       0
+total,                                                  2589,    1343,    1343,    1343,    87.2,    63.8,   283.4,   406.8,   527.2,   529.0,    3.0,  0.40628,      0,      0,       0,       0,       0,       0
+total,                                                  3932,    1343,    1343,    1343,    74.8,    64.8,   159.1,   216.1,   228.6,   275.0,    4.0,  0.29205,      0,      0,       0,       0,       0,       0
+total,                                                  5458,    1526,    1526,    1526,    65.1,    57.6,   143.5,   187.3,   224.9,   251.5,    5.0,  0.22629,      0,      0,       0,       0,       0,       0
+total,                                                  7141,    1683,    1683,    1683,    59.9,    55.0,   124.4,   162.0,   203.6,   203.8,    6.0,  0.18468,      0,      0,       0,       0,       0,       0
+total,                                                  8749,    1608,    1608,    1608,    62.0,    56.1,   129.4,   168.8,   198.2,   230.8,    7.0,  0.15604,      0,      0,       0,       0,       0,       0
+total,                                                 10000,    1568,    1568,    1568,    59.2,    50.4,   137.9,   183.5,   210.2,   210.4,    7.8,  0.13511,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    1,282 op/s  [READ: 1,282 op/s]
+Partition rate            :    1,282 pk/s  [READ: 1,282 pk/s]
+Row rate                  :    1,282 row/s [READ: 1,282 row/s]
+Latency mean              :   69.2 ms [READ: 69.2 ms]
+Latency median            :   59.5 ms [READ: 59.5 ms]
+Latency 95th percentile   :  151.5 ms [READ: 151.5 ms]
+Latency 99th percentile   :  245.2 ms [READ: 245.2 ms]
+Latency 99.9th percentile :  429.4 ms [READ: 429.4 ms]
+Latency max               :  529.0 ms [READ: 529.0 ms]
+Total partitions          :     10,000 [READ: 10,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:07
+
+END
