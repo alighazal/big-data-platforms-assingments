@@ -7,7 +7,7 @@ cluster = Cluster(['localhost'])
 session = cluster.connect()
 X       
 session.execute(
-    "CREATE KEYSPACE IF NOT EXISTS yellow_taxi WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };")
+    "CREATE KEYSPACE IF NOT EXISTS yellow_taxi WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '3' };")
 
 # session.execute(
 #     """

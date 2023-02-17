@@ -1,2 +1,47 @@
-the content of this file should be the output of the log of your own git project for this assignment
-using git log command to export your git log
+commit 20a9b12d2505daa7778935878dadd03cc74b56ea
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 09:17:14 2023 +0200
+
+    report progress
+
+commit 9ed2eae4af0e8f9fa07665c0eedd401ff5dd8fa7
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 09:15:36 2023 +0200
+
+    report progress
+
+commit d529d5acdedba741e7e03492f373a3dec5219d19
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 07:13:54 2023 +0000
+
+    cassandra config
+
+commit 0e6dd2ea3104b14669229cfd57a5a32f9525c41e
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 07:11:34 2023 +0000
+
+    cassadra log files
+
+commit ce473abc6f8627191caccb75e9d1d347f87f2f48
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 01:31:51 2023 +0000
+
+    addidng test script
+
+commit c9e2af4d697d5fb43f6ce88d94133e38fd695053
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Fri Feb 17 01:29:39 2023 +0000
+
+    adding log files from cassandra-stress test
+
+commit 0ab35b0c2ac043b5d6f8707b1a46fe4df00a581e
+Author: Ali Ghazal <ali.mdghazal@gmail.com>
+Date:   Tue Feb 14 09:13:12 2023 +0200
+
+    data ingestion and modeling
+
+commit 376e80cb27e266e0015f8855ae44d684355a34bc
+Author: Ali Ghazal (Nokia) <ali.ghazal@nokia.com>
+Date:   Mon Feb 13 20:10:39 2023 +0200
+
+    first commit
