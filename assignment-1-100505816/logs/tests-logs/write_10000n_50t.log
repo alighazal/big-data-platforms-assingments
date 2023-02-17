@@ -1,0 +1,113 @@
+******************** Stress Settings ********************
+Command:
+  Type: write
+  Count: 10,000
+  No Warmup: false
+  Consistency Level: LOCAL_ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: false
+  Thread Count: 50
+  OpsPer Sec: 0
+Population:
+  Sequence: 1..10000
+  Order: ARBITRARY
+  Wrap: true
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: write_10000n_50t.log
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V5
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [192.168.56.101]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: keyspace1
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Send To Daemon:
+  *not set*
+Graph:
+  File: null
+  Revision: unknown
+  Title: null
+  Operation: WRITE
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Sleeping 2s...
+Warming up WRITE with 2500 iterations...
+Running WRITE with 50 threads for 10000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   833,     833,     833,     833,    51.6,    47.9,   112.2,   141.0,   191.9,   191.9,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  1890,    1057,    1057,    1057,    46.5,    40.1,    98.3,   139.9,   225.4,   225.6,    2.0,  0.09861,      0,      0,       0,       0,       0,       0
+total,                                                  2995,    1105,    1105,    1105,    45.2,    38.6,    98.1,   120.6,   159.1,   167.4,    3.0,  0.06950,      0,      0,       0,       0,       0,       0
+total,                                                  4415,    1420,    1420,    1420,    35.9,    30.9,    78.2,   109.5,   139.6,   145.2,    4.0,  0.08295,      0,      0,       0,       0,       0,       0
+total,                                                  6030,    1615,    1615,    1615,    30.3,    26.3,    68.0,    98.0,   135.5,   136.1,    5.0,  0.08919,      0,      0,       0,       0,       0,       0
+total,                                                  7054,    1024,    1024,    1024,    49.0,    46.5,    95.2,   118.1,   135.9,   137.4,    6.0,  0.08178,      0,      0,       0,       0,       0,       0
+total,                                                  8407,    1353,    1353,    1353,    36.3,    29.6,    88.4,   114.0,   140.2,   140.8,    7.0,  0.07065,      0,      0,       0,       0,       0,       0
+total,                                                  9726,    1319,    1319,    1319,    38.1,    32.8,    86.6,   123.4,   136.8,   148.5,    8.0,  0.06193,      0,      0,       0,       0,       0,       0
+total,                                                 10000,    1033,    1033,    1033,    46.5,    42.4,   100.2,   115.0,   124.8,   124.8,    8.3,  0.06360,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    1,210 op/s  [WRITE: 1,210 op/s]
+Partition rate            :    1,210 pk/s  [WRITE: 1,210 pk/s]
+Row rate                  :    1,210 row/s [WRITE: 1,210 row/s]
+Latency mean              :   40.4 ms [WRITE: 40.4 ms]
+Latency median            :   34.5 ms [WRITE: 34.5 ms]
+Latency 95th percentile   :   91.1 ms [WRITE: 91.1 ms]
+Latency 99th percentile   :  122.4 ms [WRITE: 122.4 ms]
+Latency 99.9th percentile :  154.3 ms [WRITE: 154.3 ms]
+Latency max               :  225.6 ms [WRITE: 225.6 ms]
+Total partitions          :     10,000 [WRITE: 10,000]
+Total errors              :          0 [WRITE: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:08
+
+END

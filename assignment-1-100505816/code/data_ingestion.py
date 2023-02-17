@@ -17,7 +17,7 @@ session.execute(
 session.execute(
     """
     CREATE TABLE IF NOT EXISTS yellow_taxi.journeys(
-    uuid uuid PRIMARY KEY,
+    uuid uuid,
     VendorID int ,
     tpep_pickup_datetime  timestamp ,
     tpep_dropoff_datetime timestamp ,
@@ -36,7 +36,8 @@ session.execute(
     improvement_surcharge float,
     total_amount float,
     congestion_surcharge float,
-    airport_fee float
+    airport_fee float,
+    PRIMARY KEY (PULocationID, DOLocationID , uuid)
 );
 """
 )

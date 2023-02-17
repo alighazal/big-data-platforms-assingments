@@ -1,3 +1,5 @@
 plan.md
-data
+./data
 assignment-1-100505816/code/platform/cassandra
+data/2018_Yellow_Taxi_Trip_Data.csv
+data/yellow_tripdata_2022-01.parquet

@@ -87,9 +87,9 @@ Address the following points:
     
 
 2.  Given the data schema/structure of the tenant (Part 2, Point 1), design a strategy for data partitioning/sharding, explain the goal of the strategy (performance, data regulation and/or what), and explain your implementation for data partitioning/sharding together with your design for replication in Part 1, Point 4, in mysimbdp-coredms (1 point)
-    
-    - TODO: read and write more about data modeling in cassadra
 
+    - In cassandra, data modeling is query-driven. That is, usually we are creating one table per one query. while selecting a primary key, the first key is used for selecting the partion. and if we have a composite key, then the rest of the field are used as clustering columns. for paritioning the data, I selected to do the partitioning based on the Pickup location id. the details of the areas corresponding to each Id could be found in `data\taxi-zone-lookup.csv` and to add uniqueness to each row, i aslo added a applicaton-level generated uuid. the rationale behind this choice was my interest in selecting a partitioning key that could group a enough data points. consequently, while querying, we will be able to access only one partition. 
+    
 
 3. Assume that you are the tenant, write a mysimbdp-dataingest that takes data from your selected sources and stores the data into mysimbdp-coredms. Explain what would be the atomic data element/unit to be stored. Explain possible consistency options for writing data in your mysimdbpdataingest (1 point)
 
